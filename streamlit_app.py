@@ -31,8 +31,6 @@ def user_input_features():
     return pd.DataFrame(data, index=[0])    
 
 df = user_input_features()
-inputs=[[LF,LM,WM,WL,RLW,FE]]
-
 st.sidebar.markdown(
 """ 
 ****   
