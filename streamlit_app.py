@@ -11,12 +11,12 @@ from xgboost import XGBClassifier,XGBRegressor
 st.sidebar.header("متغیرها را وارد کنید")
 
 def user_input_features():
-    LF = st.sidebar.slider("LF", 0, 20, 0)
-    LM = st.sidebar.slider("LM", 0, 20, 0)
-    WM = st.sidebar.slider("WM", 0, 1, 0)
-    WL = st.sidebar.slider("WL", 0, 1, 0)
-    RLW = st.sidebar.slider("RLW", 0, 25, 0)
-    FE = st.sidebar.slider("FE", 0, 1, 0)
+    LF = st.sidebar.slider("LF", 0.00, 20.00, 0.00)
+    LM = st.sidebar.slider("LM", 0.00, 20.00, 0.0)
+    WM = st.sidebar.slider("WM", 0.00, 1.00, 0.00)
+    WL = st.sidebar.slider("WL", 0.00, 1.00, 0.00)
+    RLW = st.sidebar.slider("RLW", 0.00, 25.00, 0.00)
+    FE = st.sidebar.slider("FE", 0.00, 1.00, 0.00)
 
     data = {
             'LF':LF,
@@ -41,7 +41,7 @@ st.sidebar.markdown(
 
 # Main
 
-st.header("Orientation Prediction")
+st.header("شرکت بهینه راهبرد انفجار***")
 st.subheader(" پیش بینی جهت داری ")
 st.write("\n")
 st.write("\n")
@@ -55,5 +55,5 @@ predictions = load_clf.predict(df)[0]
 st.write("\n")
 st.write("\n")
 st.subheader("Prediction by XgBoost Model")
-st.write(f"The predicted number of bikes today is: {int(predictions)}")
+st.write(f"The predicted number of bikes today is: {(predictions)}")
 
