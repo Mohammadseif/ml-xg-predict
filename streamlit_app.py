@@ -53,5 +53,5 @@ predictions = mdl.predict(df)[0]
 st.write("\n")
 st.write("\n")
 st.subheader("پیش بینی بر اساس مدل : XgBoost")
-st.write(f"The predicted Fragmentation is: {(int(predictions)}")
+st.write(f"The predicted Fragmentation is: {int(predictions)}")
 
