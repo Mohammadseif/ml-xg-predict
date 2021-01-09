@@ -47,14 +47,12 @@ st.header("شرکت بهینه راهبرد انفجار***")
 st.subheader(" پیش بینی جهت داری ")
 st.write("\n")
 st.write("\n")
-st.write("You have selected the following inputs:")
+st.write("متغیرهای ورودی انتخاب کرده اید:")
 st.write(df)
 
-mdl = joblib.load('xgboost.pkl')
-predictions = mdl.predict(inputs)
-#with open("xgboost.pkl", "rb") as f:
-    #load_clf = pickle.load(f)   
-#predictions = load_clf.predict(inputs)
+with open("xgboost.pkl", "rb") as f:
+    mdl = joblib.load(f)   
+predictions = mdl.predict(df)[0]
 
 st.write("\n")
 st.write("\n")
