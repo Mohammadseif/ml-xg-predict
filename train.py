@@ -13,13 +13,13 @@ data= df.loc[df['v7'] == 'magnetit']
 
 xgb_data = df1.copy()
 
-y_df = xgb_data['Orientation'].reset_index(drop=True)
-x_df = xgb_data[['LF', 'LM', 'WM', 'WL', 'RLW', 'FE']]
+y_df = xgb_data['FE'].reset_index(drop=True)
+x_df = xgb_data[['LF', 'LM', 'WM', 'WL', 'RLW']]
 
 train_x, test_x, train_y, test_y = train_test_split(x_df, y_df, test_size=0.20,random_state = 42)
 print("Training model...")                                                   
 
-model = XGBClassifier(
+model = XGBRegressor(
     learning_rate = 0.00599657208814288 , 
     n_estimators = 1000 , 
     max_depth =6 , 
@@ -27,7 +27,7 @@ model = XGBClassifier(
     gamma =0.9 , 
     subsample = 0.9500000000000001, 
     colsample_bytree = 0.6000000000000001 ,
-    objective = 'binary:logistic')
+    objective = 'reg:linear')
 model.fit(train_x, train_y)   
 predictions = model.predict(test_x)
 
