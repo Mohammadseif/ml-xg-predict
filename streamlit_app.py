@@ -24,12 +24,13 @@ def user_input_features():
             'WM':WM,
             'WL':WL,
             'RLW':RLW,
-            'FE':RLW,
+            'FE':FE,
     }
 
     return pd.DataFrame(data, index=[0])    
 
 df = user_input_features()
+inputs=[[LF,LM,WM,WL,RLW,FE]]
 
 st.sidebar.markdown(
 """ 
@@ -50,7 +51,7 @@ st.write(df)
 
 with open("xgboost.pkl", "rb") as f:
     load_clf = pickle.load(f)   
-predictions = load_clf.predict(df)
+predictions = load_clf.predict(inputs)
 
 st.write("\n")
 st.write("\n")
