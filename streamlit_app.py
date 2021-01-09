@@ -5,6 +5,7 @@ import pandas as pd
 import streamlit as st
 import xgboost as xgb
 from xgboost import XGBClassifier,XGBRegressor
+from sklearn.externals import joblib
 
 # Sidebar
 
@@ -49,9 +50,11 @@ st.write("\n")
 st.write("You have selected the following inputs:")
 st.write(df)
 
-with open("xgboost.pkl", "rb") as f:
-    load_clf = pickle.load(f)   
-predictions = load_clf.predict(inputs)
+mdl = joblib.load('xgboost.pkl')
+predictions = mdl.predict(inputs)
+#with open("xgboost.pkl", "rb") as f:
+    #load_clf = pickle.load(f)   
+#predictions = load_clf.predict(inputs)
 
 st.write("\n")
 st.write("\n")
