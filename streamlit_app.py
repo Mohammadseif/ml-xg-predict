@@ -12,12 +12,11 @@ from sklearn.externals import joblib
 st.sidebar.header("متغیرها را وارد کنید")
 
 def user_input_features():
-    LF = st.sidebar.slider("LF", 0.00, 20.00, 0.00)
-    LM = st.sidebar.slider("LM", 0.00, 20.00, 0.0)
-    WM = st.sidebar.slider("WM", 0.00, 1.00, 0.00)
-    WL = st.sidebar.slider("WL", 0.00, 1.00, 0.00)
-    RLW = st.sidebar.slider("RLW", 0.00, 25.00, 0.00)
-    FE = st.sidebar.slider("FE", 0.00, 1.00, 0.00)
+    LF = st.sidebar.slider("میانگین عمق چال‌ها در ردیف اول", 0.00, 20.00, 0.00)
+    LM = st.sidebar.slider("میانگین عمق چال‌ها در ردیف‌های میانی", 0.00, 20.00, 0.0)
+    WM = st.sidebar.slider("نسبت عمق آب به عمق چال ردیف‌های میانی", 0.00, 1.00, 0.00)
+    WL = st.sidebar.slider("نسبت عمق آب به عمق چال ردیف آخر", 0.00, 1.00, 0.00)
+    RLW = st.sidebar.slider("نسبت طول به عرض بلوک  انفجاری", 0.00, 25.00, 0.00)
 
     data = {
             'LF':LF,
@@ -25,7 +24,6 @@ def user_input_features():
             'WM':WM,
             'WL':WL,
             'RLW':RLW,
-            'FE':FE,
     }
 
     return pd.DataFrame(data, index=[0])    
@@ -41,11 +39,11 @@ st.sidebar.markdown(
 
 # Main
 
-st.header("شرکت بهینه راهبرد انفجار***")
-st.subheader(" پیش بینی جهت داری ")
+st.header("***شرکت بهینه راهبرد انفجار***")
+st.subheader(" پیش بینی کارایی خردایش ")
 st.write("\n")
 st.write("\n")
-st.write("متغیرهای ورودی انتخاب کرده اید:")
+st.write("متغیرهای ورودی کاربر:")
 st.write(df)
 
 with open("xgboost.pkl", "rb") as f:
@@ -54,6 +52,6 @@ predictions = mdl.predict(df)[0]
 
 st.write("\n")
 st.write("\n")
-st.subheader("Prediction by XgBoost Model")
-st.write(f"The predicted number of bikes today is: {(predictions)}")
+st.subheader("پیش بینی بر اساس مدل : XgBoost")
+st.write(f"کارایی خردایش برابر است با: {(int(predictions)}")
 
