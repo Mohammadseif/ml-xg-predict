@@ -50,7 +50,7 @@ st.write(df)
 
 with open("xgboost.pkl", "rb") as f:
     load_clf = pickle.load(f)   
-predictions = load_clf.predict(df)[0]
+predictions = load_clf.predict(df)
 
 st.write("\n")
 st.write("\n")
