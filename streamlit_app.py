@@ -39,7 +39,7 @@ st.sidebar.markdown(
 
 # Main
 
-st.header("***شرکت بهین راهبرد انفجار***")
+st.header("***Mine to Mill Optimization Project in Goharzamin Iron Ore Mine***")
 st.subheader(" پیش بینی کارایی خردایش ")
 st.write("\n")
 st.write("\n")
