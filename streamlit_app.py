@@ -39,7 +39,7 @@ st.sidebar.markdown(
 
 # Main
 
-st.header("***شرکت بهینه راهبرد انفجار***")
+st.header("***شرکت بهین راهبرد انفجار***")
 st.subheader(" پیش بینی کارایی خردایش ")
 st.write("\n")
 st.write("\n")
